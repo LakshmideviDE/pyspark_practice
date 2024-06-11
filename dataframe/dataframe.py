@@ -14,7 +14,8 @@ df = spark.read.csv(csv_path, **options)
 
 df = df.withColumn("price", lit(20000))
 df=df.withColumn("Price",when(col("customer")==1,3000).when(col("customer")==2,4000).otherwise(col("price")))
-#df.show()
+df.show()
+
 df=df.withColumn("date",lit("None"))
 
 df=df.drop('date')
@@ -27,3 +28,18 @@ df.printSchema()
 #df.show()
 df.filter((col("product_model").contains("i5"))).show()
 df.filter((col("product_model").like('h%'))).show()
+
+
+# res= df.filter(col("product_model") > 2)
+# res= df.where(col("cost") > 3000)
+# res.show()
+#
+# description_df = df.describe()
+# description_df.show()
+#
+#
+# rename = df.select(col("name").alias("firstname"))
+# rename.show()
+
+casted_df = df.withColumn("price", col("cost").cast("string"))
+casted_df.show()

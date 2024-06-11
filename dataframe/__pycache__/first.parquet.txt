@@ -1,0 +1,2 @@
+product_id: [101, 102, 103, 104, 105]
+product_name: ["mobile", "laptop", "soap", "brush", "real me"]

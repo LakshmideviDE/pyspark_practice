@@ -10,8 +10,6 @@ data = [(1, "lakshmi"), (2, "chandu")]
 # schema = ["id", "name"]
 schema = StructType([StructField(name='id', dataType=IntegerType()),
                      StructField(name='name', dataType=StringType())])
-
-
 # Create DataFrame
 
 df = spark.createDataFrame(data=data,schema=schema)

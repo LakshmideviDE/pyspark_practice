@@ -5,7 +5,7 @@ spark = SparkSession.builder.appName("creating of data").getOrCreate()
 
 df1 = spark.read.csv(r"C:\Users\Lakshmidevi\PycharmProjects\psyspark\pyspark_practice\dataframe\union.csv",header=True,inferSchema=True)
 df=df1.printSchema()
-window_s=Window.orderBy("salary").partitionBy("dep")
+window_s=Window.orderBy("salary")
 new=df1.withColumn("row_num",row_number().over(window_s))
 new.show()
 
@@ -20,3 +20,11 @@ d.show()
 
 d=df1.withColumn("lag",lag("salary").over(window_s))
 d.show()
+
+
+wind_asp=Window.orderBy("salary").partitionBy()
+
+new=df1.withColumn("rand_c",rank().over(wind_asp))
+new.show()
+
+

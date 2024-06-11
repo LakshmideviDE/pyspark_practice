@@ -14,22 +14,21 @@ read_df=read_file("csv", options, path)
 read_df.show()
 
 def create_age_column(df,column_name, value):
-    return df.withColumn(column_name, lit(value))
-
+   return df.withColumn(column_name, lit(value))
+#
 read_df=create_age_column(read_df, "Age", 20)
-
-read_df.show()
-
+#
+#
 def drop_column(df,column_name):
     return df.drop(column_name)
-
+#
 drop_column_df=drop_column(read_df,"Age")
 drop_column_df.show()
-
-def add_gender(df,column_name,value):
-    return df.withColumn(column_name, lit(value))
-red_df=add_gender(read_df,'gender', 'm')
-red_df.show()
+#
+# def add_gender(df,column_name,value):
+#     return df.withColumn(column_name, lit(value))
+# red_df=add_gender(read_df,'gender', 'm')
+# red_df.show()
 
 # def drop_age(df,column_name,value):
 #     return df.drop(column_name)
